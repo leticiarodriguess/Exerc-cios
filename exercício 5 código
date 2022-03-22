@@ -1,0 +1,20 @@
+int botao = 2;
+int led = 4;
+bool estadoLed = 0;
+
+void setup()
+{
+  pinMode(botao,INPUT_PULLUP);
+  pinMode(led,OUTPUT);
+}
+
+void loop()
+{
+  if(digitalRead(botao)== HIGH)
+  {
+    estadoLed = !estadoLed;
+    digitalWrite(led,estadoLed);
+    while(digitalRead(botao)== HIGH);
+    delay(100);
+  }
+}
